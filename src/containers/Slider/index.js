@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useData } from "../../contexts/DataContext";
-import { getMonth } from "../../helpers/Date";
+// import { getMonth } from "../../helpers/Date";
 
 import "./style.scss";
 
@@ -33,11 +33,6 @@ const Slider = () => {
               <div className="SlideCard__description">
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
-                { console.log("getMonth(): ", getMonth(new Date(event.date)),
-                "\nnew Date(event.date): ", new Date(event.date),
-                "\nnewDate(event.date).getMonth(): ", new Date(event.date).getMonth() + 1,
-                "\nnew Date(event.date).toLocalString(...): ", new Date(event.date).toLocaleString(undefined, {month: "long"}),
-                )}
                 <div>{new Date(event.date).toLocaleString(undefined, {month: "long"})}</div>
               </div>
             </div>
