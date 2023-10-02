@@ -13,12 +13,21 @@ const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const eventsByType = ((type ? data?.events : data?.events) || []).filter((event) => {
+    if (
+      event.type === type
+    ) {
+      return true;
+    }
+    return false;
+  });
+console.log("type: ", type,"\nfilteredEvents2", eventsByType);
   const filteredEvents = (
     (!type
       ? data?.events
-      : data?.events) || []
+      : eventsByType) || []
   ).filter((event, index) => {
-    console.log((currentPage - 1) * PER_PAGE, "\n",PER_PAGE * currentPage);
+    // console.log((currentPage - 1) * PER_PAGE, "\n",PER_PAGE * currentPage);
     if (
       (currentPage - 1) * PER_PAGE <= index &&
       PER_PAGE * currentPage > index
@@ -27,13 +36,13 @@ const EventList = () => {
     }
     return false;
   });
-  console.log("filteredEvents", filteredEvents);
+  // console.log("filteredEvents", filteredEvents);
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
-    console.log("type", evtType);
+    // console.log("type", evtType);
   };
-  const pageNumber = Math.floor((data?.events.length || 0 )/ (filteredEvents?.length || 1));
+  const pageNumber = Math.ceil((eventsByType?.length || data?.events.length || 0 )/ (PER_PAGE || 0));
   console.log("pageNumber", pageNumber);
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
@@ -63,14 +72,14 @@ const EventList = () => {
               </Modal>
             ))}
           </div>
-          <div className="Pagination">
+          {(pageNumber <= 1) || <div className="Pagination">
             {[...Array(pageNumber || 0 )].map((_, n) => (
               // eslint-disable-next-line react/no-array-index-key
               <a key={n} href="#events" onClick={() => setCurrentPage(n + 1)}>
                 {n + 1}
               </a>
             ))}
-          </div>
+          </div>}
         </>
       )}
     </>
