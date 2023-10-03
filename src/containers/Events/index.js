@@ -21,7 +21,7 @@ const EventList = () => {
     }
     return false;
   });
-console.log("type: ", type,"\nfilteredEvents2", eventsByType);
+// console.log("type: ", type,"\nfilteredEvents2", eventsByType);
   const filteredEvents = (
     (!type
       ? data?.events
@@ -43,7 +43,7 @@ console.log("type: ", type,"\nfilteredEvents2", eventsByType);
     // console.log("type", evtType);
   };
   const pageNumber = Math.ceil((eventsByType?.length || data?.events.length || 0 )/ (PER_PAGE || 0));
-  console.log("pageNumber", pageNumber);
+  // console.log("pageNumber", pageNumber);
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
     <>
