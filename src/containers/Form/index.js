@@ -3,8 +3,13 @@ import PropTypes from "prop-types";
 import Field, { FIELD_TYPES } from "../../components/Field";
 import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
-
-const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 1000); })
+// i want to mock an error response from the api
+const mockContactApi = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const random = Math.random();
+    if(random < 0.5) { resolve("Alles OK !") }else{ reject(new Error("Envoie du formulaire impossible !"))}
+  }, 1000);
+});
 
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
@@ -16,9 +21,10 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
+        onSuccess(); // onSuccess was not beeing called in case of success
       } catch (err) {
         setSending(false);
-        onError(err);
+        onError(err.message);
       }
     },
     [onSuccess, onError]
