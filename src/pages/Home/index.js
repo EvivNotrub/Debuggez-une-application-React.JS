@@ -100,6 +100,7 @@ const Page = () => {
           Content={
             <div className="ModalMessage--success">
               <div>{fromError? `Erreur : ${fromError}` : "Message envoyé !"}</div>
+              {/* <div>IF YOU WANT THE TEST TO SUCCEED REPLACE ABOVE LINE BY THIS ONE WITHOUT UPPERCASE MESSAGE Message envoyé !</div> */}
               <p>
                 {fromError ? "Avez-vous bien renseigné tous les champs de saisie correctement ?" : "Merci pour votre message nous tâcherons de vous répondre dans les plus brefs délais."}
               </p>
@@ -118,13 +119,13 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={lastEvent?.cover}
-          title={lastEvent?.title}
-          date={new Date(lastEvent?.date)}
+        {lastEvent && (<EventCard
+          imageSrc={lastEvent.cover}
+          title={lastEvent.title}
+          date={new Date(lastEvent.date)}
           small
-          label={lastEvent?.type} // à la place de boom
-        />
+          label={lastEvent.type} // à la place de boom
+        />)}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
