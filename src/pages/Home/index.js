@@ -99,7 +99,7 @@ const Page = () => {
         <Modal
           Content={
             <div className="ModalMessage--success">
-              <div>{fromError? `Message d'erreur : ${fromError}` : "Message envoyé !"}</div>
+              <div>{fromError? `Erreur : ${fromError}` : "Message envoyé !"}</div>
               {/* <div>IF YOU WANT THE TEST TO SUCCEED REPLACE ABOVE LINE BY THIS ONE WITHOUT UPPERCASE MESSAGE Message envoyé !</div> */}
               <p>
                 {fromError ? "Avez-vous bien renseigné tous les champs de saisie correctement ?" : "Merci pour votre message nous tâcherons de vous répondre dans les plus brefs délais."}
