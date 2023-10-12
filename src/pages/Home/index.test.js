@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, act, waitFor, render, screen } from "@testing-library/react";
 import Home from "./index";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
@@ -29,16 +30,28 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
-  })
-  it("a list a people is displayed", () => {
-    // to implement
+  it("a list of events is displayed", async () => {
+    render(<Home />);
+    await screen.findByTestId("eventList-testid");
+  });
+  it("a list a people is displayed", async () => {
+    render(<Home />);
+    await screen.findAllByTestId("peopleCard-testid");
   })
   it("a footer is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.getByTestId("footer-testid");
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    waitFor(() => {
+      screen.getByText("Notre derniére prestation");
+    }, 30000);
+    await screen.findByText("Notre derniére prestation");
+
+
+    const TIMEOUT = 2000; // mockContactApi response + button title loading time
+await waitFor(() => screen.getByTestId("Message envoyé !"), { timeout: TIMEOUT });
+
   })
 });

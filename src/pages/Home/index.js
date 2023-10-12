@@ -100,7 +100,6 @@ const Page = () => {
           Content={
             <div className="ModalMessage--success">
               <div>{fromError? `Erreur : ${fromError}` : "Message envoyé !"}</div>
-              {/* <div>IF YOU WANT THE TEST TO SUCCEED REPLACE ABOVE LINE BY THIS ONE WITHOUT UPPERCASE MESSAGE Message envoyé !</div> */}
               <p>
                 {fromError ? "Avez-vous bien renseigné tous les champs de saisie correctement ?" : "Merci pour votre message nous tâcherons de vous répondre dans les plus brefs délais."}
               </p>
@@ -116,7 +115,7 @@ const Page = () => {
         </Modal>
       </div>
     </main>
-    <footer className="row">
+    <footer data-testid="footer-testid" className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         {lastEvent && (<EventCard

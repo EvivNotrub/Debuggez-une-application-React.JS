@@ -6,8 +6,10 @@ import Button, { BUTTON_TYPES } from "../../components/Button";
 // i want to mock an error response from the api
 const mockContactApi = () => new Promise((resolve, reject) => {
   setTimeout(() => {
-    const random = Math.random(); // FOR THE TEST TO SUCCEED WE NEED TO HAVE A VALUE < 0.5 SO ADD 0.4 ||
-    if(random < 0.5) { resolve("Alles OK !") }else{ reject(new Error("Envoie du formulaire impossible !"))}
+    const random = 0.4 || Math.random(); // FOR THE TEST TO SUCCEED WE NEED TO HAVE A VALUE < 0.5 SO ADD 0.4 || , but to mock an error we need to have a value > 0.5
+    if(random < 0.5) {
+      resolve("Alles OK !") }else{
+        reject(new Error("Envoie du formulaire impossible !"))}
   }, 200);
 });
 
