@@ -1,6 +1,5 @@
-import { fireEvent, act, waitFor, render, screen } from "@testing-library/react";
+import { fireEvent, waitFor, render, screen } from "@testing-library/react";
 import Home from "./index";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
