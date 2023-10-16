@@ -15,8 +15,11 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const [fromError, setFormError] = useState(null);
-  const { data } = useData();
-  const [lastEvent] = data?.events.toSorted((eventa, aventb) => new Date(eventa.date) < new Date(aventb.date) ? 1 : -1) || [];
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { lastEvent } = useData();
+  if (!isLoaded && lastEvent) {
+    setIsLoaded(true);
+  }
   return <>
     <header>
       <Menu />
@@ -118,13 +121,13 @@ const Page = () => {
     <footer data-testid="footer-testid" className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        {lastEvent && (<EventCard
+        {isLoaded ? (<EventCard
           imageSrc={lastEvent.cover}
           title={lastEvent.title}
           date={new Date(lastEvent.date)}
           small
           label={lastEvent.type} // à la place de boom
-        />)}
+        />) : "loading.."}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
