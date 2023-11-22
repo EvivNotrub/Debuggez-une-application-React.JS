@@ -13,3 +13,8 @@ L'application est le site d'une agence evenementielle.
 
 ## Tests
 - `yarn test`
+
+
+## GitHub-Pages
+
+Followed this tutorial: https://github.com/gitname/react-gh-pages
