@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.3241daec.css",
-    "main.js": "/static/js/main.41548cf9.js",
-    "static/js/787.f632ec5a.chunk.js": "/static/js/787.f632ec5a.chunk.js",
-    "index.html": "/index.html",
-    "main.3241daec.css.map": "/static/css/main.3241daec.css.map",
-    "main.41548cf9.js.map": "/static/js/main.41548cf9.js.map",
-    "787.f632ec5a.chunk.js.map": "/static/js/787.f632ec5a.chunk.js.map"
+    "main.css": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /static/css/main.3241daec.css",
+    "main.js": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /static/js/main.aba38036.js",
+    "static/js/787.f632ec5a.chunk.js": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /static/js/787.f632ec5a.chunk.js",
+    "index.html": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /index.html",
+    "main.3241daec.css.map": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /static/css/main.3241daec.css.map",
+    "main.aba38036.js.map": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /static/js/main.aba38036.js.map",
+    "787.f632ec5a.chunk.js.map": "https://evivnotrub.github.io/Debuggez-une-application-React.JS/ /static/js/787.f632ec5a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3241daec.css",
-    "static/js/main.41548cf9.js"
+    "static/js/main.aba38036.js"
   ]
 }
